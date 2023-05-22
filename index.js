@@ -1,4 +1,4 @@
-const PORT = 3000;
+const PORT = process.env.PORT || "8080";
 const express = require("express");
 const morgan = require("morgan");
 const server = express();
