@@ -1,13 +1,13 @@
 const express = require("express");
 const apiRouter = express.Router();
-
 const jwt = require("jsonwebtoken");
+require("dotenv").config;
 const { getUserById, getUserByUsername } = require("../db");
 
 apiRouter.use(async (req, res, next) => {
   const prefix = "Bearer ";
   const auth = req.header("Authorization");
-  console.log("-----AUTH", auth);
+
   if (!auth) {
     next();
   } else if (auth.startsWith(prefix)) {
